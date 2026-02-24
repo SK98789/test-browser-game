@@ -52,9 +52,7 @@ function initializeStartingValues() {
         equipped: "",
         items: []
     }
-    document.body.style.backgroundImage = "url(\"images/fog_landscape_stock.jpg\")";
-    document.body.style.backgroundRepeat = "no-repeat";
-    document.body.style.backgroundSize = "cover";
+    setBackgroundImage("fog_landscape_stock.jpg");
 }
 
 function main() {
@@ -62,8 +60,14 @@ function main() {
     introduction();
 }
 
+function setBackgroundImage(url){
+    document.body.style.backgroundImage = `url(\"images/${url}\")`;
+    document.body.style.backgroundRepeat = "no-repeat";
+    document.body.style.backgroundSize = "cover";
+}
+
 function introduction() {
-    narrationText.textContent = "you wake up on the ground in the mist. The waterlogged soil is unpleasant to rest on. \n You feel an overwhelming fear, as if you know not to linger in this place.";
+    narrationText.textContent = "You wake up on the ground in the mist. The waterlogged soil is unpleasant to rest on. \n You feel an overwhelming fear, as if you know not to linger in this place.";
     let button1 = document.createElement("button");
     button1.textContent = "stay";
     button1.addEventListener("click", () => {

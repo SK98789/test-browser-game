@@ -61,6 +61,11 @@ const linearDialogue = [
         content: "It's a miracle you ran through all that mud without slipping once. You barely stumble through the clearing in time when you see the beast has stopped in its tracks at the edge of the tree line. You hold your breath out of fear of attracting its attention, but the creature merely turns back the way it came. \n I suppose turning back isn't an option...",
     },
     {
+        steps: 103,
+        content: "**THUD** \n \n For all your luck avoiding almost certain death in the swamp, you immediately trip over a root in the forest path.",
+        eventList: ["healthUnlockedEvent"]
+        },
+    {
         steps: 1000,
         content: "Placeholder text"
         }

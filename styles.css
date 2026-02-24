@@ -8,13 +8,26 @@ body {
     gap: 10px;
 }
 
-p {
-    font-size: large;
+p{
+    font-size: 16pt;
+}
+p, h2, button{
+    font-family: "Century Gothic", "Lucida Grande", sans-serif;
+}
+
+button{
+    font-size: 14pt;
+    padding: 5px;
 }
 
 .horizontal-flex {
     display: flex;
     justify-content: space-around;
+}
+
+.vertical-flex {
+    display: flex;
+    flex-direction: column;
 }
 
 .inline {
@@ -77,4 +90,13 @@ p {
 }
 #running-monster{
     position: absolute;
+}
+.card{
+    padding-left: 10px;
+    padding-right: 10px;;
+    border-radius: 15px;
+    background-color: var(--box-background);
+}
+#button-bar{
+    padding: 5px;
 }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,66 +10,70 @@
     <script src="events.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    <div id="top-bar">
-        <div id="steps-display" class="inline">
-            <p>Steps Taken:  </p>
-            <p id="steps">0</p>
-        </div>
-        <div id="health-display" class="inline">
-            <p id="health">0</p>
-            <img src="images/heart.png" alt="health icon" id="heart-icon" />
-        </div>
-    </div>
-    <div class="horizontal-flex">
-        <div id="narration-box">
-            <p id="narration-text"></p>
-        </div>
-        <div id="inventory-box">
-             <h2>Inventory</h2>
-             <div class="inventory-display">
-                <p>Head:</p>
-                <div class="inline">
-                    <p id="head-equipped">Empty</p>
-                    <img src="images/no-helmet-edit.png" class="gear-icons" id="helmet-icon">
-                </div>
-             </div>
-             <div class="inventory-display">
-                <p>Body:</p>
-                <div class="inline">
-                    <p id="body-equipped">Muddy Clothes</p>
-                    <img src="images/muddy-shirt-edit.png" class="gear-icons" id="body-icon">
-                </div>
-                
-             </div>
-             <div class="inventory-display">
-                <p>Feet:</p>
-                <div class="inline">
-                    <p id="feet-equipped">Split Shoes</p>
-                    <img src="images/damaged-boot-edit.png" class="gear-icons" id="shoe-icon">
-                </div>
-             </div>
-             <div class="inventory-display">
-                <p>Equipped:</p>
-                <div class="inline">
-                    <p id="equipped">Empty</p>
-                    <img src="images/empty-symbol.png" class="gear-icons" id="equipped-icon">
-                </div>
-             </div>
-             <p>Inventory:</p>
-             <p id="inventory-list"></p>
-        </div>
-    </div>
-    <div  id="button-bar">
-        
-    </div>
     <div>
-        <button id="step-button">Take a Step</button>
+        <div id="top-bar">
+            <div id="steps-display" class="inline card">
+                <p>Steps Taken: </p>
+                <p id="steps">0</p>
+            </div>
+            <div id="health-display" class="inline">
+                <p id="health">0</p>
+                <img src="images/heart.png" alt="health icon" id="heart-icon" />
+            </div>
+        </div>
+        <div class="horizontal-flex">
+            <div id="narration-box">
+                <p id="narration-text"></p>
+            </div>
+            <div id="inventory-box">
+                <h2>Inventory</h2>
+                <div class="inventory-display">
+                    <p>Head:</p>
+                    <div class="inline">
+                        <p id="head-equipped">Empty</p>
+                        <img src="images/no-helmet-edit.png" class="gear-icons" id="helmet-icon">
+                    </div>
+                </div>
+                <div class="inventory-display">
+                    <p>Body:</p>
+                    <div class="inline">
+                        <p id="body-equipped">Muddy Clothes</p>
+                        <img src="images/muddy-shirt-edit.png" class="gear-icons" id="body-icon">
+                    </div>
+
+                </div>
+                <div class="inventory-display">
+                    <p>Feet:</p>
+                    <div class="inline">
+                        <p id="feet-equipped">Split Shoes</p>
+                        <img src="images/damaged-boot-edit.png" class="gear-icons" id="shoe-icon">
+                    </div>
+                </div>
+                <div class="inventory-display">
+                    <p>Equipped:</p>
+                    <div class="inline">
+                        <p id="equipped">Empty</p>
+                        <img src="images/empty-symbol.png" class="gear-icons" id="equipped-icon">
+                    </div>
+                </div>
+                <p>Inventory:</p>
+                <p id="inventory-list"></p>
+            </div>
+        </div>
+        <div id="button-bar">
+
+        </div>
+        <div>
+            <button id="step-button">Take a Step</button>
+        </div>
+        <div id="animation-bar">
+            <img id="running-figure" src="images/figure-running/1.png">
+            <img id="running-monster" src="images/monster-running/1.png">
+        </div>
     </div>
-    <div id="animation-bar">
-        <img id="running-figure" src="images/figure-running/1.png">
-        <img id="running-monster" src="images/monster-running/1.png">
-    </div>
-    
+    <a href="sources.html"> Art sources</a>
 </body>
+
 </html>
