@@ -81,7 +81,7 @@ function introduction() {
     button2.addEventListener("click", () => {
         //Cancel the timer if the user gets up within the time limit.
         isDying = false;
-        narrationText.textContent = "You get yourself out of the mud. Your shoes are well-worn and the water soaks into your threadbare socks, but it feels better than laying in the mud.";
+        narrationText.textContent = "You get yourself out of the mud. Your shoes are well-worn and the water soaks into your threadbare socks, but it feels better than laying in the swamp you seemingly passed out in.";
         optionsBox.replaceChildren();
         stepButton.style.visibility = "visible";
         inventoryBox.style.visibility = "visible";
