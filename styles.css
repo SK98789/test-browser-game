@@ -1,0 +1,80 @@
+:root {
+  --box-background: #e0e0e0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+p {
+    font-size: large;
+}
+
+.horizontal-flex {
+    display: flex;
+    justify-content: space-around;
+}
+
+.inline {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+#narration-box {
+    border: 2px solid;
+    padding: 10px;
+    min-width: 70%;
+    max-width: 70%;
+    min-height: 350px;
+    border-radius: 15px;
+    background-color: var(--box-background);
+}
+
+#inventory-box {
+    border: 2px solid;
+    padding: 15px;
+    min-width: 25%;
+    max-width: 25%;
+    min-height: 350px;
+    border-radius: 15px;
+    background-color: var(--box-background);
+}
+
+.inventory-display {
+    display: flex;
+    justify-content: space-between;
+
+}
+.gear-icons{
+    height: 32px;
+    image-rendering: pixelated;
+}
+
+#top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+#heart-icon {
+    height: 48px;
+    image-rendering: pixelated;
+}
+
+#animation-bar {
+    border: 2px solid;
+    padding: 10px;
+    min-height: 150px;
+    max-width: 85%;
+    border-radius: 15px;
+    background-color: var(--box-background);
+}
+#running-figure{
+    position: absolute;
+}
+#running-monster{
+    position: absolute;
+}
