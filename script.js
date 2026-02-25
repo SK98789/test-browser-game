@@ -4,7 +4,6 @@ let currentDialogue;
 let nextDialogue;
 let nextDialogueIndex;
 let isDying = false;
-let eventIsComplete = false;
 let eventHasStarted = false;
 const animationBar = document.getElementById("animation-bar");
 const stepsDisplay = document.getElementById("steps-display");
@@ -20,12 +19,13 @@ let inventory;
 function takeStep() {
     stepCounter += 1;
     steps.textContent = stepCounter;
-    if( currentDialogue !== undefined && "eventList" in currentDialogue && !eventHasStarted && !eventIsComplete){
+    if( currentDialogue !== undefined && "eventList" in currentDialogue && !eventHasStarted){
+        console.log("event started");
         eventHasStarted = true;
         let eventName = events[currentDialogue.eventList[0]];
         eventName();
     }
-    if ((stepCounter >= nextDialogue.steps) && (eventIsComplete || !(currentDialogue !== undefined && "eventList" in currentDialogue))){
+    if (stepCounter >= nextDialogue.steps){
         moveNextDialogue();
     }
 };

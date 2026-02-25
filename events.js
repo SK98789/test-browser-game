@@ -10,9 +10,8 @@ var chaseEvent = function () {
 }
 
 var healthUnlockedEvent = function () {
-
+    console.log("in health unlocked event");
     healthDisplay.style.visibility = "visible";
-    eventIsComplete = true;
     eventHasStarted = false;
 }
 let events = {
@@ -32,10 +31,9 @@ function runningFigureAnim() {
         clearInterval(chase);
         handleDeath({});
     }
-    if (stepCounter >= 99) {
+    if (stepCounter >= 100) {
         clearInterval(chase);
         //Success Animation here
-        eventIsComplete = true;
         eventHasStarted = false;
         stepButton.removeEventListener("click", moveFigure);
         animationBar.style.visibility = "hidden";
