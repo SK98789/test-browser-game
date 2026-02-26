@@ -1,4 +1,3 @@
-let stage;
 let stepCounter;
 let currentDialogue;
 let nextDialogue;
@@ -19,14 +18,13 @@ let inventory;
 function takeStep() {
     stepCounter += 1;
     steps.textContent = stepCounter;
+    if (stepCounter >= nextDialogue.steps){
+        moveNextDialogue();
+    }
     if( currentDialogue !== undefined && "eventList" in currentDialogue && !eventHasStarted){
-        console.log("event started");
         eventHasStarted = true;
         let eventName = events[currentDialogue.eventList[0]];
         eventName();
-    }
-    if (stepCounter >= nextDialogue.steps){
-        moveNextDialogue();
     }
 };
 
@@ -36,7 +34,7 @@ stepButton.addEventListener("click", takeStep)
  * All starting values needed to reset the game.
  */
 function initializeStartingValues() {
-    stage = 1;
+    player.stage = 1;
     stepCounter = 0;
     isDying = false;
     stepsDisplay.style.visibility = "hidden";
@@ -46,10 +44,10 @@ function initializeStartingValues() {
     inventoryBox.style.visibility = "hidden";
     animationBar.style.visibility = "hidden";
     inventory = {
-        head: "",
-        body: "",
-        feet: "",
-        equipped: "",
+        head: GEAR_LIST["head"][0],
+        body:  GEAR_LIST["body"][0],
+        feet:  GEAR_LIST["feet"][0],
+        equipped:  GEAR_LIST["equippable"][0],
         items: []
     }
     setBackgroundImage("fog_landscape_stock.jpg");
@@ -61,7 +59,7 @@ function main() {
 }
 
 function setBackgroundImage(url){
-    document.body.style.backgroundImage = `url(\"images/${url}\")`;
+    document.body.style.backgroundImage = `url(\"images/backgrounds/${url}\")`;
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
 }

@@ -7,6 +7,8 @@
     <title>???</title>
     <script src="script.js" defer></script>
     <script src="dialogue.js"></script>
+    <script src="gear.js"></script>
+    <script src="player.js"></script>
     <script src="events.js" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
@@ -19,8 +21,8 @@
                 <p id="steps">0</p>
             </div>
             <div id="health-display" class="inline card">
-                <p id="health">0</p>
-                <img src="images/heart.png" alt="health icon" id="heart-icon" />
+                <p id="health"></p>
+                <img src="images/main-icons/heart.png" alt="health icon" id="heart-icon" />
             </div>
         </div>
         <div class="horizontal-flex">
@@ -33,14 +35,14 @@
                     <p>Head:</p>
                     <div class="inline">
                         <p id="head-equipped">Empty</p>
-                        <img src="images/no-helmet-edit.png" class="gear-icons" id="helmet-icon">
+                        <img src="images/gear/no-helmet-edit.png" class="gear-icons" id="helmet-icon">
                     </div>
                 </div>
                 <div class="inventory-display">
                     <p>Body:</p>
                     <div class="inline">
                         <p id="body-equipped">Muddy Clothes</p>
-                        <img src="images/muddy-shirt-edit.png" class="gear-icons" id="body-icon">
+                        <img src="images/gear/muddy-shirt-edit.png" class="gear-icons" id="body-icon">
                     </div>
 
                 </div>
@@ -48,14 +50,14 @@
                     <p>Feet:</p>
                     <div class="inline">
                         <p id="feet-equipped">Split Shoes</p>
-                        <img src="images/damaged-boot-edit.png" class="gear-icons" id="shoe-icon">
+                        <img src="images/gear/damaged-boot-edit.png" class="gear-icons" id="shoe-icon">
                     </div>
                 </div>
                 <div class="inventory-display">
                     <p>Equipped:</p>
                     <div class="inline">
                         <p id="equipped">Empty</p>
-                        <img src="images/empty-symbol.png" class="gear-icons" id="equipped-icon">
+                        <img src="images/gear/empty-symbol.png" class="gear-icons" id="equipped-icon">
                     </div>
                 </div>
                 <p>Inventory:</p>
