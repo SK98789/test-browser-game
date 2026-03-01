@@ -1,5 +1,5 @@
 let player = {
-    currentLevel: 1,
+    stage: 1,
     currenthealth: 80,
     maxHealth: 100,
     inventory: {

@@ -59,6 +59,7 @@ const linearDialogue = [
     {
         steps: 100,
         content: "It's a miracle you ran through all that mud without slipping once. You barely stumble through the clearing in time when you see the beast has stopped in its tracks at the edge of the tree line. You hold your breath out of fear of attracting its attention, but the creature merely turns back the way it came. \n I suppose turning back isn't an option...",
+        eventList: ["stageTwoEvent"]
     },
     {
         steps: 103,
@@ -306,13 +307,10 @@ const COTTAGE_DIALOGUE = [
     },
     //20
     {
-        text: "\"Ok, last question: What animal hunts for sport, preens like a peacock, and invades *any* habitat?\" \n \n (Author's note: This part is to be continued!!!!!!!!!!!!!!!!)",
+        text: "\"Ok, last question: \n\nIt cannot be seen, cannot be felt, cannot be heard, cannot be smelt. It lies behind stars and under hills, and empty holes it fills. It comes first and follows after. It ends life, kills laughter. What is it?",
         opts: [
-            {
-                buttonText: "continue",
-                directTo: 14
-            }
-        ]
+        ],
+        eventList: ["cottageFinalQ"]
     },
     
 ]

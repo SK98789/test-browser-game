@@ -6,6 +6,7 @@ const headGearIcon = document.getElementById("helmet-icon");
 const bodyGearIcon = document.getElementById("body-icon");
 const feetGearIcon = document.getElementById("shoe-icon");
 const equippedGearIcon = document.getElementById("equipped-icon");
+let answer = document.createElement("input");
 
 let animationCounter = 0;
 let eventCurrentDialogue;
@@ -20,7 +21,14 @@ var chaseEvent = function () {
     chase = setInterval(runningFigureAnim, 100);
 }
 
+var stageTwoEvent = function () {
+    localStorage.setItem("stage", "2");
+    player.stage = 2;
+    eventHasStarted = false;
+}
+
 var healthUnlockedEvent = function () {
+    console.log("health");
     healthDisplay.style.visibility = "visible";
     health.textContent = `${player.currenthealth} / ${player.maxHealth}`
     eventHasStarted = false;
@@ -54,6 +62,47 @@ var cottageOptionalEvent = function () {
     optionsBox.replaceChildren(button2, button1);
 }
 
+var cottageFinalQ = function () {
+    let inputForm = document.createElement("form");
+    inputForm.onsubmit = cottageQuestionValidator;
+    answer.setAttribute("type", "text");
+    answer.setAttribute("name", "answer");
+    let s = document.createElement("input");
+    s.setAttribute("type", "submit");
+    s.setAttribute("value", "Submit");
+    inputForm.replaceChildren(answer, s);
+    optionsBox.replaceChildren(inputForm);
+
+}
+
+function cottageQuestionValidator(event) {
+    event.preventDefault();
+    let soln = answer.value;
+    if(soln.indexOf("dark") !== -1 || soln.indexOf("night") !== -1){
+        soln = "darkness";
+    } else if (soln.indexOf("candle") !== -1)
+    {
+        soln = "candle"
+    }
+    switch(soln){
+        case "darkness":
+        case "your husband":
+            cottageQSuccess();
+            break;
+
+        case "candle":
+            narrationText.textContent = "Ok, you need to let the candle thing go, now.";
+            break;
+        default:
+            narrationText.textContent = "No, not quite. Try again";
+            break;
+    } 
+}
+function cottageQSuccess() {
+    narrationText.textContent = "Yes, thats correct!";
+    //ADD THE NEXT STEPS HERE
+}
+
 
 let events = {
     "chaseEvent": chaseEvent,
@@ -61,6 +110,8 @@ let events = {
     "cottageOptionalEvent": cottageOptionalEvent,
     "shoeTheft": shoeTheft,
     "dunceCap": dunceCap,
+    "stageTwoEvent": stageTwoEvent,
+    "cottageFinalQ": cottageFinalQ,
 
 }
 

@@ -100,3 +100,7 @@ button{
 #button-bar{
     padding: 5px;
 }
+
+#restart-button{
+    max-width: max-content;
+}

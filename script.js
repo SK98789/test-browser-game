@@ -18,10 +18,10 @@ let inventory;
 function takeStep() {
     stepCounter += 1;
     steps.textContent = stepCounter;
-    if (stepCounter >= nextDialogue.steps){
+    if (stepCounter >= nextDialogue.steps) {
         moveNextDialogue();
     }
-    if( currentDialogue !== undefined && "eventList" in currentDialogue && !eventHasStarted){
+    if (currentDialogue !== undefined && "eventList" in currentDialogue && !eventHasStarted) {
         eventHasStarted = true;
         let eventName = events[currentDialogue.eventList[0]];
         eventName();
@@ -35,6 +35,7 @@ stepButton.addEventListener("click", takeStep)
  */
 function initializeStartingValues() {
     player.stage = 1;
+    localStorage.setItem("stage", "1");
     stepCounter = 0;
     isDying = false;
     stepsDisplay.style.visibility = "hidden";
@@ -45,20 +46,53 @@ function initializeStartingValues() {
     animationBar.style.visibility = "hidden";
     inventory = {
         head: GEAR_LIST["head"][0],
-        body:  GEAR_LIST["body"][0],
-        feet:  GEAR_LIST["feet"][0],
-        equipped:  GEAR_LIST["equippable"][0],
+        body: GEAR_LIST["body"][0],
+        feet: GEAR_LIST["feet"][0],
+        equipped: GEAR_LIST["equippable"][0],
         items: []
     }
     setBackgroundImage("fog_landscape_stock.jpg");
 }
 
-function main() {
-    initializeStartingValues();
-    introduction();
+function initializeSavedValues() {
+    player.stage = localStorage.getItem("stage");
+    switch (player.stage) {
+        case "2":
+            stepCounter = 100;
+            steps.textContent = stepCounter;
+            inventoryBox.style.visibility = "visible";
+            stepsDisplay.style.visibility = "visible";
+            animationBar.style.visibility = "hidden";
+            healthDisplay.style.visibility = "hidden";
+            stepButton.disabled = false;
+            inventory = {
+                head: GEAR_LIST["head"][0],
+                body: GEAR_LIST["body"][0],
+                feet: GEAR_LIST["feet"][0],
+                equipped: GEAR_LIST["equippable"][0],
+                items: []
+            }
+            nextDialogueIndex = 15;
+            nextDialogue = linearDialogue[15];
+            currentDialogue = linearDialogue[14];
+            narrationText.textContent = linearDialogue[14].content;
+            setBackgroundImage("forest-background.jpg");
+            break;
+    }
 }
 
-function setBackgroundImage(url){
+function main() {
+    if (localStorage.length === 0 || localStorage.getItem("stage") === "1") {
+        initializeStartingValues();
+        introduction();
+    }
+    else {
+        initializeSavedValues();
+
+    }
+}
+
+function setBackgroundImage(url) {
     document.body.style.backgroundImage = `url(\"images/backgrounds/${url}\")`;
     document.body.style.backgroundRepeat = "no-repeat";
     document.body.style.backgroundSize = "cover";
@@ -95,7 +129,7 @@ function introduction() {
 
 }
 
-function moveNextDialogue(){
+function moveNextDialogue() {
     narrationText.textContent = nextDialogue.content;
     currentDialogue = nextDialogue;
     nextDialogueIndex += 1;
@@ -113,11 +147,13 @@ function handleDeath(opt) {
     restartBtn.addEventListener("click", restart);
     optionsBox.replaceChildren(restartBtn);
     stepButton.disabled = true;
-    
+
 }
 function restart() {
     initializeStartingValues();
     introduction();
 }
+
+document.getElementById("restart-button").addEventListener("click", restart);
 
 main();
