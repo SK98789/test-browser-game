@@ -6,6 +6,7 @@ const headGearIcon = document.getElementById("helmet-icon");
 const bodyGearIcon = document.getElementById("body-icon");
 const feetGearIcon = document.getElementById("shoe-icon");
 const equippedGearIcon = document.getElementById("equipped-icon");
+
 let answer = document.createElement("input");
 
 let animationCounter = 0;
@@ -16,7 +17,13 @@ const health = document.getElementById("health");
 let chase;
 var chaseEvent = function () {
     animationBar.style.visibility = "visible";
-    runningFigure.style.left = `${runningFigure.offsetLeft + runningFigure.offsetWidth}px`;
+    runningFigure.style.left = `148px`;
+    runningMonster.style.left = `20px`;
+    console.log("figure: ");
+    console.log(runningFigure.style.left);
+    console.log("monster: ");
+    console.log(runningMonster.offsetLeft);
+
     stepButton.addEventListener("click", moveFigure);
     chase = setInterval(runningFigureAnim, 100);
 }
@@ -78,25 +85,24 @@ var cottageFinalQ = function () {
 function cottageQuestionValidator(event) {
     event.preventDefault();
     let soln = answer.value;
-    if(soln.indexOf("dark") !== -1 || soln.indexOf("night") !== -1){
+    if (soln.indexOf("dark") !== -1 || soln.indexOf("night") !== -1) {
         soln = "darkness";
-    } else if (soln.indexOf("candle") !== -1)
-    {
+    } else if (soln.indexOf("candle") !== -1) {
         soln = "candle"
     }
-    switch(soln){
+    switch (soln) {
         case "darkness":
         case "your husband":
             cottageQSuccess();
             break;
 
         case "candle":
-            narrationText.textContent = "Ok, you need to let the candle thing go, now.";
+            narrationText.textContent = "Ok, you need to let the candle thing go now.";
             break;
         default:
             narrationText.textContent = "No, not quite. Try again";
             break;
-    } 
+    }
 }
 function cottageQSuccess() {
     narrationText.textContent = "Yes, thats correct!";
@@ -141,12 +147,15 @@ function iterateEventDialogueTree(n) {
 
 
 function moveFigure() {
-    runningFigure.style.left = `${runningFigure.offsetLeft + 10}px`;
+    runningFigure.style.left = `${runningFigure.offsetLeft + 15}px`;
 }
 function runningFigureAnim() {
     runningFigure.src = `images/figure-running/${animationCounter % 12 + 1}.png`
-    runningMonster.src = `images/monster-running/${animationCounter % 9 + 1}.png`
-    runningMonster.style.left = `${runningMonster.offsetLeft + 1}px`
+    if (animationCounter > 10) {
+        runningMonster.src = `images/monster-running/${animationCounter % 9 + 1}.png`
+        runningMonster.style.left = `${(runningMonster.offsetLeft + 5)*1.01}px`
+
+    }
     animationCounter += 1;
     if ((runningFigure.offsetLeft - runningMonster.offsetLeft) < 72) {
         clearInterval(chase);

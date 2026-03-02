@@ -38,6 +38,8 @@ function initializeStartingValues() {
     localStorage.setItem("stage", "1");
     stepCounter = 0;
     isDying = false;
+    eventHasStarted = false;
+
     stepsDisplay.style.visibility = "hidden";
     healthDisplay.style.visibility = "hidden";
     stepButton.style.visibility = "hidden";
@@ -147,6 +149,7 @@ function handleDeath(opt) {
     restartBtn.addEventListener("click", restart);
     optionsBox.replaceChildren(restartBtn);
     stepButton.disabled = true;
+    isDying = false;
 
 }
 function restart() {

@@ -72,6 +72,10 @@ const linearDialogue = [
         eventList: ["cottageOptionalEvent"]
     },
     {
+        steps: 111,
+        content: "You continue on your journey."
+    },
+    {
         steps: 1000,
         content: "Placeholder text"
     }
@@ -118,7 +122,7 @@ const COTTAGE_DIALOGUE = [
     },
     //3
     {
-        text: "On second thought, the house seems perfectly fine to be left alone. You have returned to the path",
+        text: "On second thought, the house seems perfectly fine to be left alone. You have returned to the path.",
         opts: []
     },
     //4
