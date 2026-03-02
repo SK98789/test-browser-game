@@ -1,5 +1,6 @@
 :root {
   --box-background: #e0e0e0;
+  --item-hover: #ede8a1;
 }
 
 body {
@@ -41,7 +42,7 @@ button{
     padding: 10px;
     min-width: 70%;
     max-width: 70%;
-    min-height: 350px;
+    min-height: 20%;
     border-radius: 15px;
     background-color: var(--box-background);
 }
@@ -51,9 +52,10 @@ button{
     padding: 15px;
     min-width: 25%;
     max-width: 25%;
-    min-height: 350px;
+    min-height: 20%;
     border-radius: 15px;
     background-color: var(--box-background);
+    font-size: 14pt;
 }
 
 .inventory-display {
@@ -103,6 +105,11 @@ button{
     border-radius: 5px;
     background-color: var(--box-background);
 }
+
+.item-card:hover{
+    background-color: var(--item-hover);
+}
+
 #button-bar{
     padding: 5px;
 }

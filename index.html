@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>???</title>
+    <script src="helper-functions.js"></script>
     <script src="script.js" defer></script>
     <script src="dialogue.js"></script>
     <script src="gear.js"></script>
@@ -30,7 +31,14 @@
                 <p id="narration-text"></p>
             </div>
             <div id="inventory-box">
-                <h2>Inventory</h2>
+                <div class="inventory-display">
+                    <h2>Inventory</h2>
+                    <div class="inline" id="money-display">
+                        <p id="money"></p>
+                        <img src="images/main-icons/quest_icon_03.png" alt="money icon" id="money-icon" />
+                    </div>
+
+                </div>
                 <div class="inventory-display">
                     <p>Head:</p>
                     <div class="inline">

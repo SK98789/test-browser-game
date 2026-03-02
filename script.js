@@ -12,6 +12,19 @@ const narrationText = document.getElementById("narration-text");
 const optionsBox = document.getElementById("button-bar");
 const stepButton = document.getElementById("step-button");
 const inventoryBox = document.getElementById("inventory-box");
+const headGearDisplay = document.getElementById("head-equipped");
+const bodyGearDisplay = document.getElementById("body-equipped");
+const feetGearDisplay = document.getElementById("feet-equipped");
+const equippedGearDisplay = document.getElementById("equipped");
+const headGearIcon = document.getElementById("helmet-icon");
+const bodyGearIcon = document.getElementById("body-icon");
+const feetGearIcon = document.getElementById("shoe-icon");
+const equippedGearIcon = document.getElementById("equipped-icon");
+const inventoryList = document.getElementById("inventory-list");
+const runningFigure = document.getElementById("running-figure");
+const runningMonster = document.getElementById("running-monster");
+const health = document.getElementById("health");
+const gold = document.getElementById("money");
 
 let inventory;
 
@@ -46,13 +59,16 @@ function initializeStartingValues() {
     stepButton.disabled = false;
     inventoryBox.style.visibility = "hidden";
     animationBar.style.visibility = "hidden";
-    inventory = {
+    player.inventory = {
         head: GEAR_LIST["head"][0],
         body: GEAR_LIST["body"][0],
         feet: GEAR_LIST["feet"][0],
         equipped: GEAR_LIST["equippable"][0],
-        items: []
+        items: [],
+        gold: 0
     }
+    gold.textContent = player.inventory["gold"];
+    changeAllGearVisuals("emptyHead", "muddyClothes", "splitShoes", "emptyEquip");
     setBackgroundImage("fog_landscape_stock.jpg");
 }
 
@@ -67,18 +83,21 @@ function initializeSavedValues() {
             animationBar.style.visibility = "hidden";
             healthDisplay.style.visibility = "hidden";
             stepButton.disabled = false;
-            inventory = {
+            player.inventory = {
                 head: GEAR_LIST["head"][0],
                 body: GEAR_LIST["body"][0],
                 feet: GEAR_LIST["feet"][0],
                 equipped: GEAR_LIST["equippable"][0],
-                items: []
+                items: [],
+                gold: 0
             }
+            gold.textContent = player.inventory["gold"];
             nextDialogueIndex = 15;
             nextDialogue = linearDialogue[15];
             currentDialogue = linearDialogue[14];
             narrationText.textContent = linearDialogue[14].content;
             setBackgroundImage("forest-background.jpg");
+            changeAllGearVisuals("emptyHead", "muddyClothes", "splitShoes", "emptyEquip");
             break;
     }
 }

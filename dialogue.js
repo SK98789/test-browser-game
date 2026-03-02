@@ -76,9 +76,43 @@ const linearDialogue = [
         content: "You continue on your journey."
     },
     {
+        steps: 115,
+        content: "Along the path, you find a simple axe.",
+        eventList: ["pickUpAxe"]
+    },
+    {
+        steps: 116,
+        content: "Still, it's odd the axe was all on its own.",
+    },
+    {
+        steps: 125,
+        content: "The weaving path does nothing to quell your nerves. It is difficult to see ahead of you, and you start to wonder if you could have strayed off the path...",
+    },
+    {
+        steps: 140,
+        content: "Finally! The path straightens a bit and you know you are going the right way."
+    },
+    {
+        steps: 145,
+        content: "Once again, you see a cabin in the distance."
+    },
+    {
+        steps: 150,
+        content: "This time, the house itself does not look out of place. You come to realize it is likely a hunting cabin."
+    },
+    {
+        steps: 154,
+        content: "The cabin is not alone, however. In front of the shack's single door stands a young man. He looks barely old enough to be fifteen, and he is sobbing into his hands.",
+        eventList: ["talkToBoy"],
+    },
+    {
+        steps: 155,
+        content: "You return to the path."
+    },
+    {
         steps: 1000,
-        content: "Placeholder text"
-    }
+        content: "Placeholder"
+    },
 ]
 
 const COTTAGE_DIALOGUE = [
@@ -500,4 +534,110 @@ const COTTAGE_DIALOGUE = [
         ],
     },
     
+]
+
+const AXE_BOY_DIALOGUE = [
+    //0
+    {
+        text: "The cabin is not alone, however. In front of the shack's single door stands a young man. He looks barely old enough to be fifteen, and he is sobbing into his hands.",
+        opts: [
+            {
+                buttonText : "approach the boy",
+                directTo: 1
+            },
+            {
+                buttonText : "avoid the boy",
+                directTo: 2
+            }
+        ]
+    },
+
+    //1
+    {
+        text: "He looks up as he hears you approach. \"Who's there?\" he calls in an anxious and hurried tone.",
+        opts: [
+            {
+                buttonText : "Say you are a traveler and ask if he needs help",
+                directTo: 3
+            },
+        ]
+    },
+    //2
+    {
+        text: "Although you try your best to avoid the boy, the fallen leaves on the path give away your presence. \n\n\"Who's there?\" he calls in an anxious and hurried tone.",
+        opts: [
+            {
+                buttonText : "Say you are a traveler and ask if he needs help",
+                directTo: 3
+            },
+        ]
+    },
+    //3
+    {
+        text: "This seems to relieve him to a degree.\n\n\"I'm sorry to bother you, but my father's axe has gone missing. Is there any chance you saw it along the path?\"",
+        opts: [
+            {
+                buttonText : "\"Yes, I saw it about 40 paces this way!\"",
+                directTo: 4
+            },
+            {
+                buttonText : "\"No, I haven't seen it\"",
+                directTo: 5
+            },
+        ]
+    },
+    //4
+    {
+        text: "\"Truly?\" the boy asks ecstatically. \"Thank you so much, traveler! You have no idea how much that means to me. Please take this for your time.\"",
+        opts: [
+            {
+                buttonText : "accept",
+                directTo: 7 
+            },
+        ]
+    },
+    //5
+    {
+        text: "The boy looks completely defeated. \n\n \"Well, thanks anyways...\" he whimpers. \n\nThe boy goes back to sobbing into his hands in front of the door.",
+        opts: [
+        ]
+    },
+    //6
+    {
+        text:"\"You actually found it!\" the boy shouts ecstatically.\n\n\"You are my hero, truly! My father has been ill, and without any money coming in from his work, I thought I could at least help by collecting and selling some firewood to feed my parents and little sisters. Of course, you saw how that went for me...\" the young man sighs. \n\n\"Of course, I could never afford to replace his axe with what little money we have. Even so, I must reward your kindness.\"",
+        opts: [
+            {
+                buttonText : "accept",
+                directTo: 8
+            },
+        ]
+    },
+    //7
+    {
+        text: "The young man hands you some coin for your troubles before sprinting off in the direction you pointed.",
+        opts: [
+            {
+                buttonText: "continue",
+                directTo: 9
+            }
+        ],
+        eventList: ["getGold"]
+    },
+    //8
+    {
+        text: "The young man hands you some coin for your troubles, and you head back on your way.",
+        opts: [
+            {
+                buttonText: "continue",
+                directTo: 9
+            }
+        ],
+        eventList: ["getGold"]
+    },
+    //8
+    {
+        text: "You return to the path.",
+        opts: [
+        ],
+    },
 ]

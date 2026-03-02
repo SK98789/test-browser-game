@@ -7,6 +7,7 @@ let player = {
         body:  GEAR_LIST["body"][0],
         feet:  GEAR_LIST["feet"][0],
         equipped:  GEAR_LIST["equippable"][0],
-        items: []
+        items: [],
+        gold: 0
     }
 }
