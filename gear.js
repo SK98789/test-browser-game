@@ -54,7 +54,15 @@ const GEAR_LIST = {
             description: "Carrying stuff sounds like a real burden"
         }
     },
-    food: [],
+    food: {
+        healthPotion : {
+            name: "Health Potion",
+            event: "healToFull",
+            value: 100,
+            icon: "images/gear/icon_86.png",
+            description: "Heals you in mysterious ways"
+        }
+    },
     other: []
 }
 /**

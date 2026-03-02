@@ -311,10 +311,193 @@ const COTTAGE_DIALOGUE = [
     },
     //20
     {
-        text: "\"Ok, last question: \n\nIt cannot be seen, cannot be felt, cannot be heard, cannot be smelt. It lies behind stars and under hills, and empty holes it fills. It comes first and follows after. It ends life, kills laughter. What is it?",
+        text: "\"Ok, last question: \n\nIt cannot be seen, cannot be felt, cannot be heard, cannot be smelt. It lies behind stars and under hills, and empty holes it fills. It comes first and follows after. It ends life, kills laughter. What is it? \"",
+        opts: [],
+        eventList: ["cottageFinalQ"]
+    },
+    //21
+    {
+        text: "Yes, that's correct!",
+        opts: [
+            {
+                buttonText: "continue",
+                directTo: 22
+            }
+        ]
+    },
+    //22
+    {
+        text: "\"Alright, so you aren't dumb as a rock. That's good to hear.\"",
+        opts: [
+            {
+                buttonText: "...thanks?",
+                directTo: 23
+            },
+            {
+                buttonText: "Wow, you are rude",
+                directTo: 23
+            }
+        ]
+    },
+    //23
+    {
+        text: "\"Now now, I didn't mean any harm by it,\" the woman said in a much more pleasant demeanor than before. \"How about I make it up to you by letting you ask *me* questions now?\"",
+        opts: [
+            {
+                buttonText: "Ask about yourself",
+                directTo: 24
+            },
+            {
+                buttonText: "Ask about her",
+                directTo: 25
+            },
+            {
+                buttonText: "End the questions",
+                directTo: 26
+            },
+        ]
+    },
+    //24
+    {
+        text: "\"Now now, I didn't mean any harm by it,\" the woman said in a much more pleasant demeanor than before. \"How about I make it up to you by letting you ask *me* questions now?\"",
+        opts: [
+            {
+                buttonText: "How did I end up in the swamp?",
+                directTo: 27
+            },
+            {
+                buttonText: "You mentioned that there were others like me you have met?",
+                directTo: 28
+            },
+            {
+                buttonText: "What should I do next?",
+                directTo: 29
+            },
+            {
+                buttonText: "Ask a different kind of question",
+                directTo: 23
+            },
+        ]
+    },
+    //25
+    {
+        text: "\"Now now, I didn't mean any harm by it,\" the woman said in a much more pleasant demeanor than before. \"How about I make it up to you by letting you ask *me* questions now?\"",
+        opts: [
+            {
+                buttonText: "Ask about the screaming whistle and the cursing",
+                directTo: 30
+            },
+            {
+                buttonText: "Ask about the blood on the porch",
+                directTo: 31
+            },
+            {
+                buttonText: "Ask why she was annoyed to see you",
+                directTo: 32
+            },
+            {
+                buttonText: "Ask a different kind of question",
+                directTo: 23
+            },
+        ]
+    },
+    //26
+    {
+        text: "\"I'm sorry I couldn't be of more help. Before you set off, let me get you something,\" the woman says. She gets you a cup of tea to drink using the kettle she had sat on the wood stove.",
+        opts: [
+            {
+                buttonText: "Drink",
+                directTo: 33
+            },
+        ]
+    },
+    //27
+    {
+        text: "\"Sorry dear, no clue.\"",
+        opts: [
+            {
+                buttonText: "Ask a different question",
+                directTo: 24
+            },
+        ]
+    },
+    //28
+    {
+        text: "\"Ah, yes, I have seen a handful of others like you emerge from the swamp. None have had any clue how they got there. \n\nYou got out of the swamp less damaged than many of the others, though. \"",
+        opts: [
+            {
+                buttonText: "Ask a different question",
+                directTo: 24
+            },
+        ]
+    },
+    //29
+    {
+        text: "\"Honestly? I have no idea. I would encourage you to keep following the path you are on. Sometimes just putting one foot in front of the other can lead you exactly where you need to go.\"",
+        opts: [
+            {
+                buttonText: "Ask a different question",
+                directTo: 24
+            },
+        ]
+    },
+    //30
+    {
+        text: "\" Oh, that?  \n\nMy dear, that was a tea kettle. I may use magic for most things, but instantly boiling water is not something I would waste my magic on. \n\nI will rather foolishly admit that I have a tendency to forget heat protection when I handle my kettle. I suspect you heard me cursing from burning myself\"",
+        opts: [
+            {
+                buttonText: "Ask a different question",
+                directTo: 25
+            },
+        ]
+    },
+    //31
+    {
+        text: "\"Yes, I understand why that would concern you. \n\nThis forest is not a particularly safe place to be, even for someone such as myself. Every fortnight, I leave out an offering to the ...thing that lives in these woods with me. It takes the sacrifice, and it leaves me alone. I suppose you saw the leftover parts of that offering.  \"",
+        opts: [
+            {
+                buttonText: "Ask a different question",
+                directTo: 25
+            },
+        ]
+    },
+    //32
+    {
+        text: "\"I mean this kindly, my dear, but in what situations should I be *excited* about unexpected guests this far into the woods?\"",
+        opts: [
+            {
+                buttonText: "Ask a different question",
+                directTo: 25
+            },
+        ]
+    },
+    //33
+    {
+        text: "The tea has an earthy yet sweet taste. The more you drink, the better it tastes. There's something about this tea that makes you feel... stronger?",
+        opts: [
+            {
+                buttonText: "Thank her for her hospitality",
+                directTo: 34
+            },
+        ],
+        eventList: ["healToFull",]
+    },
+    //34
+    {
+        text: "\"You're welcome dear. Now take this for the road,\" she says, handing you a potion. \"Use this when you have injured yourself, and you will feel good as new.\"",
+        opts: [
+            {
+                buttonText: "Continue",
+                directTo: 35
+            },
+        ],
+        eventList: ["gainHealthPotion",]
+    },
+    //35
+    {
+        text: "You wave goodbye to the generous woman and head back to the path. \n\nAs you reach the place on the trail where you had originally veered off before, you suddenly feel something shift behind you. You glance back, and where the cottage once stood, you see nothing but trees and brambles.",
         opts: [
         ],
-        eventList: ["cottageFinalQ"]
     },
     
 ]

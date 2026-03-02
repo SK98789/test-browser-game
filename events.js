@@ -6,6 +6,7 @@ const headGearIcon = document.getElementById("helmet-icon");
 const bodyGearIcon = document.getElementById("body-icon");
 const feetGearIcon = document.getElementById("shoe-icon");
 const equippedGearIcon = document.getElementById("equipped-icon");
+const inventoryList = document.getElementById("inventory-list");
 
 let answer = document.createElement("input");
 
@@ -49,6 +50,29 @@ var dunceCap = function () {
     player.inventory.head = GEAR_LIST["head"][1];
     changeGearVisual(0, "dunceCap");
 }
+var healToFull = function () {
+    player.currenthealth = player.maxHealth;
+    health.textContent = `${player.currenthealth} / ${player.maxHealth}`;
+    eventHasStarted = false;
+}
+
+var useHealthPotion = function (event) {
+    if (player.currenthealth <= player.maxHealth) {
+        player.currenthealth = player.maxHealth;
+        health.textContent = `${player.currenthealth} / ${player.maxHealth}`;
+        inventoryList.removeChild(event.target);
+    }
+}
+
+var gainHealthPotion = function () {
+    player.inventory.items.push(GEAR_LIST.food.healthPotion);
+    let healthIcon = document.createElement("img");
+    healthIcon.src = GEAR_LIST.food.healthPotion.icon;
+    healthIcon.classList.add("gear-icons", "item-card");
+    healthIcon.addEventListener("click", useHealthPotion);
+    inventoryList.appendChild(healthIcon);
+    eventHasStarted = false;
+}
 
 var cottageOptionalEvent = function () {
     stepButton.disabled = true;
@@ -84,16 +108,22 @@ var cottageFinalQ = function () {
 
 function cottageQuestionValidator(event) {
     event.preventDefault();
-    let soln = answer.value;
+    let soln = answer.value.toLowerCase();
     if (soln.indexOf("dark") !== -1 || soln.indexOf("night") !== -1) {
         soln = "darkness";
     } else if (soln.indexOf("candle") !== -1) {
-        soln = "candle"
+        soln = "candle";
     }
     switch (soln) {
+        case "toot":
+        case "fart":
+            narrationText.textContent = "Did I not just say 'cannot be smelt'???";
+            break;
         case "darkness":
+            iterateEventDialogueTree(21);
+            break;
         case "your husband":
-            cottageQSuccess();
+            narrationText.textContent = "Incredibly based response, queen. Nevertheless, try again.";
             break;
 
         case "candle":
@@ -104,11 +134,6 @@ function cottageQuestionValidator(event) {
             break;
     }
 }
-function cottageQSuccess() {
-    narrationText.textContent = "Yes, thats correct!";
-    //ADD THE NEXT STEPS HERE
-}
-
 
 let events = {
     "chaseEvent": chaseEvent,
@@ -118,6 +143,8 @@ let events = {
     "dunceCap": dunceCap,
     "stageTwoEvent": stageTwoEvent,
     "cottageFinalQ": cottageFinalQ,
+    "healToFull": healToFull,
+    "gainHealthPotion": gainHealthPotion,
 
 }
 
@@ -133,16 +160,18 @@ function iterateEventDialogueTree(n) {
         })
         optionsBox.appendChild(btn);
     });
-    if (eventCurrentDialogue.opts.length === 0) {
-        if (eventCurrentDialogue["eventList"]) {
-            eventCurrentDialogue.eventList.forEach(ev => {
-                let eventName = events[ev];
-                eventName();
-            })
-        }
+
+    if (eventCurrentDialogue["eventList"]) {
+        eventCurrentDialogue.eventList.forEach(ev => {
+            let eventName = events[ev];
+            eventName();
+        })
+    }
+    else if (eventCurrentDialogue.opts.length === 0) {
         eventHasStarted = false;
         stepButton.disabled = false;
     }
+
 }
 
 
@@ -153,7 +182,7 @@ function runningFigureAnim() {
     runningFigure.src = `images/figure-running/${animationCounter % 12 + 1}.png`
     if (animationCounter > 10) {
         runningMonster.src = `images/monster-running/${animationCounter % 9 + 1}.png`
-        runningMonster.style.left = `${(runningMonster.offsetLeft + 5)*1.01}px`
+        runningMonster.style.left = `${(runningMonster.offsetLeft + 5) * 1.01}px`
 
     }
     animationCounter += 1;
