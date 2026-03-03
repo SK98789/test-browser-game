@@ -610,7 +610,8 @@ const AXE_BOY_DIALOGUE = [
                 buttonText : "accept",
                 directTo: 8
             },
-        ]
+        ],
+        eventList: ["removeAxe"],
     },
     //7
     {

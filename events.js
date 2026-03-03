@@ -220,6 +220,12 @@ var pickUpAxe = function () {
     optionsBox.replaceChildren(button1, button2);
 }
 
+var removeAxe = function () {
+    removeFromArray(player.inventory.items, GEAR_LIST.equippable.axe);
+    inventoryList.removeChild(document.querySelector(`img[title=\"${GEAR_LIST["equippable"]["axe"].description}\"]`))
+
+}
+
 let events = {
     "chaseEvent": chaseEvent,
     "healthUnlockedEvent": healthUnlockedEvent,
@@ -233,6 +239,7 @@ let events = {
     "pickUpAxe": pickUpAxe,
     "talkToBoy": talkToBoy,
     "getGold": getGold,
+    "removeAxe" : removeAxe
 
 }
 

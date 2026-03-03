@@ -50,6 +50,7 @@ function initializeStartingValues() {
     player.stage = 1;
     localStorage.setItem("stage", "1");
     stepCounter = 0;
+    steps.textContent = stepCounter;
     isDying = false;
     eventHasStarted = false;
 
